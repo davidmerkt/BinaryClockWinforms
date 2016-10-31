@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BinaryClockWinforms
 {
-    class BinaryConverter
+    public class BinaryConverter
     {
         private int decimalNumber;
         private string stringBinaryNumber;
@@ -35,6 +35,7 @@ namespace BinaryClockWinforms
 
         private void convertDecimalToBinary()
         {
+            int decimalNumber = this.decimalNumber;
             stringBinaryNumber = "";
             listBinaryNumber = new List<bool>();
 
@@ -50,12 +51,14 @@ namespace BinaryClockWinforms
                     decimalNumber /= 2;
                 }
             }
-            else if (decimalNumber <= 0)
+            else if (decimalNumber == 0)
             {
                 stringBinaryNumber = "0";
                 decimalNumber = 0;
                 listBinaryNumber.Add(false);
             }
+            else if (decimalNumber < 0)
+                throw new NotImplementedException();
         }
     }
 }
